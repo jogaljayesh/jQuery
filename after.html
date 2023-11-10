@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>after</title>
+
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+	<style type="text/css">
+		
+		#box {
+			background-color: burlywood;
+			width: 600px;
+		}
+
+	</style>
+
+</head>
+<body>
+
+<div id="box">
+	<h1>after add</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+</div>
+
+<button id="after">after btn</button>
+
+<script type="text/javascript">
+	
+	let name = "sagar"
+	$("#after").one("click" , function(){
+		$("#box").after(name)
+	});
+
+</script>
+
+</body>
+</html>
