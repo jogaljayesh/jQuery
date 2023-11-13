@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>clone</title>
+
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+	<style type="text/css">
+		
+		div {
+			width: 600px;
+		}
+		#box {
+			background: pink;
+		}
+		#box2 {
+			background: rgb(184, 11, 11);
+		}
+
+	</style>
+
+</head>
+<body>
+
+<div id="box">
+	<h1>clone</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea</p>
+	<h2>data2</h2>
+</div>
+<div id="box2">
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea</p>
+</div>
+
+<button id="cln">clone</button>
+
+
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+		$("#cln").click(function(){
+			$("#box h2").clone().prependTo("#box2")
+		});
+	});
+
+	$("#cln").click(function(){
+		$("#box h2").clone().appendTo("#box2")
+	});
+
+</script>
+
+</body>
+</html>
