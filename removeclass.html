@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>remove class</title>
+
+	<style type="text/css">
+		
+		#box {
+			width: 600px;
+			margin: 0 auto;
+			border: 2px solid;
+			transition: 1s;
+		}
+		button {
+			display: block;
+			margin: 0 auto;
+		}
+		.bg {
+			background-color: crimson;
+			color: aliceblue;
+		}
+		.class {
+			padding: 100px;
+		}
+		.hr {
+			background-color: darkgoldenrod;
+		}
+
+	</style>
+
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<div id="box">
+	<h1>jquery</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+
+<button id="addclass">addclass</button>
+<button id="removeclass">removeclass</button>
+
+
+<script type="text/javascript">
+	$("#addclass").click(function(){
+		$("#box").addClass("bg class")
+	});
+	$("#removeclass").click(function(){
+		$("#box").removeClass("class")
+	});
+	$("#addclass").click(function(){
+		$("#box").addClass("hr class")
+	});
+</script>
+
+</body>
+</html>
