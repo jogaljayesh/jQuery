@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>toggle class task</title>
+
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+
+	<style type="text/css">
+		
+		div {
+			/*width: 100px;
+			height: 100px;*/
+/*			border: 2px solid;*/
+			margin: 10px;
+			display: none;
+		}
+		img {
+			width: 30%;
+		}
+		/*#box1 {
+			background: pink;
+		}
+		#box2{
+			background: red;
+		}
+		#box3{
+			background: yellow;
+		}
+		#box4{
+			background: blue;
+		}*/
+
+	</style>
+
+</head>
+<body>
+
+<button id="btn">toggle class</button>
+
+<div id="box1">
+	<img src="images/5686615.jpg">
+</div>
+<div id="box2">
+	<img src="images/5686615.jpg">
+</div>
+<div id="box3">
+	<img src="images/5686615.jpg">
+</div>
+<div id="box4">
+	<img src="images/5686615.jpg">
+</div>
+
+<script type="text/javascript">
+	
+$(document).ready(function(){
+	$("#btn").click(function(){
+		$("#box1").fadeToggle()
+		$("#box2").fadeToggle(2000)
+		$("#box3").fadeToggle(4000)
+		$("#box4").fadeToggle(8000)
+	});
+});
+
+</script>
+
+</body>
+</html>
