@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>click</title>
+
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<style type="text/css">
+	
+#panel {
+  margin: 100px;
+  padding: 20px;
+  border: 1px solid red;
+  width:300px;
+  text-align:center;
+}
+
+.bottom {
+  position: fixed;
+  bottom: 0;
+}
+
+pre {
+  background-color: lightgrey;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+</style>
+
+</head>
+<body>
+
+<button>Click me</button>
+<div id="panel">Hello World!</div>
+<script>
+$(document).ready(function() {
+	$("#panel").hide();
+	$("button").click(function(){
+		$("#panel").slideToggle();
+	});
+});
+</script>
+
+</body>
+</html>
