@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>children and find</title>
+
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<style type="text/css">
+	
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans';
+  text-align: 'justify';
+}
+
+body {
+  padding: 20px;
+}
+
+h2 {
+  margin-top: 35px;
+  margin-bottom: 20px;
+}
+
+p {
+  line-height: 2;
+  margin-bottom: 15px;
+}
+
+i, b {
+  padding: 0 4px;
+}
+
+</style>
+
+</head>
+<body>
+
+<h2>Using <code>children</code> and <code>find</code> in jQuery</h2>
+
+<p>I have <span><b>written</b></span> a lot of text here. Most of this text won't make any <span><i>sense</i></span>. I had to just write it down so that I could include so <span><b>tags</b></span> here and there which I can then style using jQuery.</p>
+<p>Are you actually reading all this text? <span><b>Please stop!</b></span> You have <span><i>not</i></span> found anything interesting until now and you won't find <span><b>anything</b></span> in <span><i>next</i></span> paragraph.</p>
+<p>The <b>bold</b> and <i>italic</i> text here is not enclosed within span tags. This has been done to demonstrate the difference between <code>children</code> and <code>find</code>.</p>
+
+<script type="text/javascript">
+	
+$("p").children("b, i").css("border-bottom","2px solid black");
+
+$("p").find("b, i").css("background", "yellow");
+
+</script>
+</body>
+</html>
