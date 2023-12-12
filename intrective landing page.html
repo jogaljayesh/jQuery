@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>intrective landing page</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&family=Mea+Culpa&family=Water+Brush&family=Yusei+Magic&display=swap" rel="stylesheet">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+<style type="text/css">
+	
+:root{
+  --dunkel:#111111;
+  --w:#fff;
+  --hell:#210a4c;}
+
+.w-100{
+  width:100%
+}
+
+.w-50{
+  width:50%
+}
+.w-25{
+  width:25%
+}
+
+.grid{
+  display:grid;
+  grid-template:repeat(3,auto)/repeat(auto-fit, minmax(150px,1fr));
+  grid-gap:1rem;
+  margin-top:15rem
+}
+
+.float_right{
+  position:absolute;
+  right:0;
+  top:0
+}
+
+.inline{
+  display:inline-block
+}
+
+.orb{
+  filter:drop-shadow(0px 0px 30px #c74f7d);
+ }
+
+body{
+height:100%;
+width:100%;
+margin:0;
+padding:2rem 0;
+background:linear-gradient(135deg,var(--hell),var(--dunkel)) repeat top center/cover;
+}
+
+.wrapper{
+width:90%;
+margin:auto;
+padding:2rem;
+color:#fff;
+font-family:"Yusei Magic";
+}
+
+h1{
+  font-size:7rem;
+  font-family:"Fleur De Leah";
+  font-weight:400;
+  margin:0
+}
+
+.infobox{
+  width:calc(100vw / 2);
+  line-height:1.8;
+  display:none;
+  text-align:center;
+  font-family:"Yusei Magic";
+  font-size:1rem;
+  position:relative;
+   border-radius:16px;
+  padding:1rem;
+  }
+
+.general{
+  display:inline-block;
+  width:50%;
+  line-height:1.8;
+  margin:5rem 0 0;
+  text-align:center;
+  font-family:"Yusei Magic";
+  font-size:1rem;
+   }
+
+.charactertab .character{
+  color:#fff;
+  height:calc(100vh / 6);
+  border-radius:16px;
+  padding:1rem;
+  display:inline-grid;
+  align-content:end;
+  font-size:3rem;
+  font-family:"Fleur De Leah";
+  filter:saturate(0.2)
+}
+
+.active{
+  filter:saturate(1) !important;
+   }
+
+.infobox p{
+  font-size:3rem;
+  font-family:"Fleur De Leah";
+  margin:-3rem 0 0;
+  text-align:left
+ }
+
+#fire, .fire{
+  background:linear-gradient(rgba(155,80,80,1),rgba(0,0,0,1))/*, url(https://cdn.leonardo.ai/users/cc9eec58-4276-48d8-a84e-fb2b2ca24d04/generations/195a1452-1f13-42f4-927e-77fa44813c6a/Leonardo_Diffusion_XL_flames_0.jpg?w=512) no-repeat top center/cover;*/
+}
+
+#water, .water{
+   background:linear-gradient(rgba(0,150,185,1),rgba(0,0,0,1))/*, url(https://cdn.leonardo.ai/users/cc9eec58-4276-48d8-a84e-fb2b2ca24d04/generations/3bd94b66-c5c0-43be-bc2a-a4627c84ebad/Leonardo_Diffusion_XL_water_0.jpg) no-repeat top center/cover;*/
+}
+
+#earth, .earth{
+   background:linear-gradient(rgba(100,155,100,1),rgba(0,0,0,1))/*, url(https://cdn.leonardo.ai/users/cc9eec58-4276-48d8-a84e-fb2b2ca24d04/generations/207992dd-6bfd-42bd-9f6e-df902017800c/Leonardo_Diffusion_XL_nature_plants_2.jpg) no-repeat top center/cover;*/
+}
+
+#air, .air{
+   background:linear-gradient(rgba(185,185,205,1),rgba(0,0,0,1))/*, url(https://cdn.leonardo.ai/users/cc9eec58-4276-48d8-a84e-fb2b2ca24d04/generations/b7b5f35a-d61d-46f1-88ae-da62d75f7d0a/Leonardo_Diffusion_XL_wind_air_3.jpg) no-repeat top center/cover;*/
+}
+
+#shadows, .shadows{
+   background:linear-gradient(rgba(50,50,50,1), rgba(0,0,0,1))/*, url(https://cdn.leonardo.ai/users/cc9eec58-4276-48d8-a84e-fb2b2ca24d04/generations/462f94f1-40a4-4b91-b283-1724cf7d2e2f/Leonardo_Diffusion_XL_dark_shadows_night_3.jpg?w=512) no-repeat top center/cover;*/
+}
+
+#light, .light{
+   background:linear-gradient(rgba(155,155,50,1),rgba(0,0,0,1))/*, url(https://cdn.leonardo.ai/users/cc9eec58-4276-48d8-a84e-fb2b2ca24d04/generations/5bdad1b5-665e-4d3e-bc68-327b0e3dcf5e/Default_sunrays_3.jpg) no-repeat top center/cover;*/
+}
+
+.fire, .water, .air, .earth, .shadows, .light{
+  display:none;
+  z-index:2;
+  position:absolute;
+  top:20rem
+}
+
+@media only screen and (max-width:1100px){.infobox{
+  width:calc(100vw - 10rem) !important
+  }
+  .float_right{
+    z-index:0:
+  }
+  h1{
+    z-index:1;
+    position:relative
+  }
+
+  .general{
+    margin:9rem 0 0
+  }
+  .grid{
+    margin-top:8rem}
+  
+  .fire, .water, .air, .earth, .shadows, .light{
+    top:23rem
+  }
+}
+
+@media only screen and (max-width:700px){
+    h1{
+    font-size:5rem
+  }
+   .fire, .water, .air, .earth, .shadows, .light{
+    top:20rem
+  }
+}
+
+</style>
+</head>
+<body>
+  <div class="wrapper">
+        <h1 class="inline">Divine Elements</h1>
+    
+        <img src="https://cdn.leonardo.ai/users/cc9eec58-4276-48d8-a84e-fb2b2ca24d04/generations/2b08158c-0a03-40fc-a462-55bbc4c92231/variations/Default_fantasy_pink_glass_orb_shining_in_the_night_transparen_3_2b08158c-0a03-40fc-a462-55bbc4c92231_0.png" class="float_right w-50 inline orb"><br/>
+    
+    <div class="infobox general inline">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. </div>
+    <div class="infos">
+    <div class="infobox fire inline"><p>Fire</p>
+      Infos about Fire sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. </div>
+    <div class="infobox earth inline"><p>Earth</p>Infos about Earth sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. </div>
+    <div class="infobox air inline"><p>Air</p>Infos about Air sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. </div>
+    <div class="infobox water inline"><p>Water</p>Infos about Water sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. </div>
+    <div class="infobox shadows inline"><p>Shadows</p>Infos about Shadows sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</div>
+    <div class="infobox light inline"><p>Light</p>Infos about Light sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. </div>
+      </div>
+    <div class="charactertab grid w-100">
+         
+      <div class="character" id="fire">
+        Fire
+        </div>
+       <div class="character" id="earth">
+         Earth
+         
+      </div>
+       <div class="character" id="air">
+         Air
+          
+      </div>
+       <div class="character" id="water">
+         Water
+         
+      </div>
+       <div class="character" id="shadows">
+         Shadow
+         
+      </div>
+       <div class="character" id="light">
+         Light
+         
+      </div>
+    </div>
+   </div>
+
+<script type="text/javascript">
+	
+$("#fire").click(function(){
+$(this).toggleClass("active");
+  $(this).siblings().removeClass("active");
+  $(".fire").toggle();
+  $(".fire").siblings().hide();
+  // $(".general").hide();
+ });
+
+$("#earth").click(function(){
+$(this).toggleClass("active");
+ $(this).siblings().removeClass("active");
+   $(".earth").toggle();
+   $(".earth").siblings().hide();
+   //$(".general").hide();
+     });
+
+$("#water").click(function(){
+$(this).toggleClass("active");
+   $(this).siblings().removeClass("active");
+$(".water").toggle();
+   $(".water").siblings().hide();
+   //$(".general").hide();
+   });
+
+$("#air").click(function(){
+$(this).toggleClass("active");
+   $(this).siblings().removeClass("active");
+$(".air").toggle();
+   $(".air").siblings().hide();
+   //$(".general").hide();
+   });
+
+$("#shadows").click(function(){
+$(this).toggleClass("active");
+   $(this).siblings().removeClass("active");
+$(".shadows").toggle();
+   $(".shadows").siblings().hide();
+   //$(".general").hide();
+    });
+
+$("#light").click(function(){
+  $(this).toggleClass("active");
+   $(this).siblings().removeClass("active");
+$(".light").toggle();
+   $(".light").siblings().hide();
+  //$(".general").hide();
+         });
+
+
+
+</script>
+
+</body>
+</html>
