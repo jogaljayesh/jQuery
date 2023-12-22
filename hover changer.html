@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>hover changer</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+<style type="text/css">
+	
+body {
+	background-color: #355F34;
+}
+#region-map, #region-overlay {
+    width: 640px;
+    height: 320px;
+}
+
+#region-map {
+    background: url(https://tim-school.com/codepen/tv-images/44.jpg) 0 0 no-repeat;
+}
+
+#region-overlay.europe {
+    background: url(https://tim-school.com/codepen/tv-images/99.jpg) 0 0 no-repeat;
+}
+
+#region-overlay.asia {
+    background: url(https://tim-school.com/codepen/tv-images/77.jpg) 0 0 no-repeat;
+}
+
+#region-overlay.africa {
+    background: url(https://tim-school.com/codepen/tv-images/44.jpg) 0 0 no-repeat;
+}
+
+#region-overlay.australia {
+    background: url(https://tim-school.com/codepen/tv-images/33.jpg) 0 0 no-repeat;
+}
+ul {
+    padding: 0;
+	border: 0;
+}
+
+</style>
+
+</head>
+<body>
+
+<ul class="region">
+    <a href="#" id="europe"><img src="images/99.jpg" width="100" height="100" alt=""></a>
+    <a href="#" id="asia"><img src="images/77.jpg" width="100" height="100" alt=""></a>
+    <a href="#" id="africa"><img src="images/44.jpg" width="100" height="100" alt=""></a>
+    <a href="#" id="australia"><img src="images/33.jpg" width="100" height="100" alt=""></a>
+</ul>
+<div id="region-map">
+<div id="region-overlay"></div>
+</div>
+
+<script type="text/javascript">
+	
+$(function() {
+    $('ul.region a').hover(function() {
+        // Get the current region
+        var region = $(this).attr('id');
+        // Hide the current overlay, change it's map and change it back.
+        $('#region-overlay').fadeOut(200, function() {
+            $(this).attr('class', region).fadeIn(200);
+        });
+    }, function() {
+        // Hide the overlay
+        $('#region-overlay').fadeOut(200);
+    });
+});
+
+</script>
+
+</body>
+</html>
