@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>random number generator</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body>
+
+<!-- this is just for testing -->
+<p style="font-size:48px;text-align:center;cursor:pointer">Click to get result</p>
+
+
+<script type="text/javascript">	
+// RANDOM NUMBER GENERATOR
+
+// to get a random integer from a range use:
+// getRandom(min, max);
+// the order doesn't matter (max can come first)
+// EG:
+
+getRandom(-1, 5);
+
+// to get a random integer from zero to the number passed use:
+// getRandom(n);
+// EG:
+
+getRandom(6);
+
+
+// cut and paste the following function:
+
+function getRandom(a, b) {
+  
+  if (a==undefined && b==undefined) alert("Nothing passed");
+  if (b==undefined) b = 1;
+  
+  max = Math.max(a, b);
+  min = Math.min(a, b);
+    
+  return Math.floor(Math.random() * (max - min + 1) + min)
+  
+}
+
+// This is just for test reasons. Ignore.
+$("p").click(function(){
+  $("p").html(getRandom(5,1));
+});
+
+</script>
+</body>
+</html>
