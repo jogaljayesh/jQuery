@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>color-barometer</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+<style type="text/css">
+	
+body {
+  background: #556271;
+}
+
+.wrapper {
+  width: 500px;
+  height: 250px;
+  overflow: hidden;
+  margin: 30vh auto 0;
+  position: relative;
+}
+
+.barometer {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  background: linear-gradient(90deg, rgb(34, 237, 22), rgb(199, 211, 36), rgb(208, 26, 26));
+}
+
+.inner-circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  bottom: 0;
+  background: #556271;
+}
+
+.pointer {
+  background: #000;
+  width: 4px;
+  height: 200px;
+  position: absolute;
+  bottom: 4px;
+  transform-origin: bottom left;
+  transform: rotate(0deg);
+}
+
+</style>
+
+</head>
+<body>
+<div class="wrapper">
+  <div class="barometer">
+    <div class="inner-circle"></div>
+    <div class="pointer" data-rotate="-34"></div> 
+  </div>
+</div>
+
+
+<script type="text/javascript">
+	
+$(document).ready(function($) {
+    var pointer = $('.pointer').data('rotate');
+    
+    $('.pointer').css('transform', 'rotate(' + pointer + 'deg)');
+});
+</script>
+</body>
+</html>
