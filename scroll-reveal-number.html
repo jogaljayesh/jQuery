@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>scroll-reveal-number</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<style type="text/css">
+
+.has-scroll-reveal { animation-play-state: paused;}
+  
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+    animation-play-state: running;
+}
+body {background:teal;
+color:white;
+}
+
+.counter-row {padding-top:100vh;
+padding-bottom:1000px;}
+
+.fadeInUp {
+    opacity: 0;
+      -webkit-transform: translateY(2.5rem);
+    transform: translateY(2.5rem);
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+}
+@keyframes fadeInUp {
+
+to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+}}
+
+</style>
+
+</head>
+<body>
+
+<h1 class="text-center has-scroll-reveal fadeInUp">Scroll Down</h1>
+<div class="counter-row d-flex align-items-center justify-content-center">
+  <h1 class="has-scroll-reveal counter" data-countto="550,000">0</h1> 
+</div>
+
+
+<script type="text/javascript">
+
+let revealClass = 'animated';
+let targetClass = '.has-scroll-reveal:not(' + revealClass + ')';
+let offset = 200; // Offset from bottom of viewport in pixels.
+let winHeight = jQuery(window).height();
+
+jQuery(window).bind('resizeEnd', function() {
+winHeight = jQuery(window).height();
+});
+
+triggerAnimation(revealClass, targetClass, offset, winHeight);
+
+jQuery(window).on('scroll', function() {
+triggerAnimation(revealClass, targetClass, offset, winHeight);
+}); // window.on('scroll')
+function triggerAnimation(revealClass, targetClass, offset, winHeight) {
+
+let trigger = jQuery(window).scrollTop() + winHeight - offset;
+
+jQuery(targetClass).each(function() {
+  let elementOffset = jQuery(this).offset().top;
+
+  if(elementOffset < jQuery(window).scrollTop() + winHeight) {
+    if(jQuery(this).hasClass('counter')) {
+      var $this = jQuery(this);
+
+      $this.removeClass('has-scroll-reveal');
+
+          countTo = parseInt($this.attr("data-countto").replace(/,/g, ''));
+
+      jQuery({ counter: $this.text() }).animate(
+        {
+          counter: countTo
+        },
+        {
+          duration: 4000,
+          easing: "swing",
+          step: function () {
+
+           $this.text(Math.floor(this.counter).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+          },
+
+          complete: function() {
+$this.text(Math.floor(this.counter).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+          }
+        }
+      );
+    }	  
+  }
+//   Reveal standard animations
+  if( elementOffset < trigger ) {
+    jQuery(this).addClass( revealClass );
+  }
+});
+}
+
+</script>
+
+</body>
+</html>
