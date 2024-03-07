@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>simple-tabs</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+<style type="text/css">
+.tabs {
+  width: 600px;
+  background-color: #09F;
+  border-radius: 5px 5px 5px 5px;
+}
+ul#tabs-nav {
+  list-style: none;
+  margin: 0;
+  padding: 5px;
+  overflow: auto;
+}
+ul#tabs-nav li {
+  float: left;
+  font-weight: bold;
+  margin-right: 2px;
+  padding: 8px 10px;
+  border-radius: 5px 5px 5px 5px;
+  /*border: 1px solid #d5d5de;
+  border-bottom: none;*/
+  cursor: pointer;
+}
+ul#tabs-nav li:hover,
+ul#tabs-nav li.active {
+  background-color: #08E;
+}
+#tabs-nav li a {
+  text-decoration: none;
+  color: #FFF;
+}
+.tab-content {
+  padding: 10px;
+  border: 5px solid #09F;
+  background-color: #FFF;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+body { 
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-weight: 300;
+  margin: 2em;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="tabs">
+  <ul id="tabs-nav">
+    <li><a href="#tab1">Rutvik</a></li>
+    <li><a href="#tab2">Vishal</a></li>
+    <li><a href="#tab3">Rahul</a></li>
+    <li><a href="#tab4">Dhavnit</a></li>
+  </ul> <!-- END tabs-nav -->
+  <div id="tabs-content">
+    <div id="tab1" class="tab-content">
+      <h2>Rutvik</h2>
+      <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat."</p>
+    </div>
+    <div id="tab2" class="tab-content">
+      <h2>Vishal</h2>
+      <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat."</p>
+    </div>
+    <div id="tab3" class="tab-content">
+      <h2>Rahul</h2>
+      <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat."</p>
+    </div>
+    <div id="tab4" class="tab-content">
+      <h2>Dhavnit</h2>
+      <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat."</p>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+
+$('#tabs-nav li:first-child').addClass('active');
+$('.tab-content').hide();
+$('.tab-content:first').show();
+
+// Click function
+$('#tabs-nav li').click(function(){
+  $('#tabs-nav li').removeClass('active');
+  $(this).addClass('active');
+  $('.tab-content').hide();
+  
+  var activeTab = $(this).find('a').attr('href');
+  $(activeTab).fadeIn();
+  return false;
+});
+
+</script>
+
+
+</body>
+</html>
