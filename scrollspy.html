@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>scrollspy</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+
+<style type="text/css">
+	
+*{
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body{
+  margin: 0px;
+  padding: 0px;
+}
+
+#nav-container{
+  position: fixed;
+  width: 100%;
+  padding: 1em 0;
+  background-color: #fff;
+}
+
+#nav{
+  display: flex;
+  justify-content: space-evenly;
+  height: 3em;
+  line-height: 3em;
+}
+
+a:link, a:visited, a:active{
+  text-decoration: none;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  color: #000;  
+}
+
+a:hover{
+  color: #85D6CB;
+}
+
+.nav-link{
+  padding: 0 1em;
+  margin: 0 3em;
+  border-radius: 2em;
+  transition: all .4s;
+}
+
+a.active{
+  color: #fff;
+}
+
+a.nav-link.active:hover{
+  padding: 0 4em;
+  margin: 0;
+}
+
+section{
+  height: 100vh;
+}
+
+#home, a.active[href="#home"]{
+  background-color: #85D6CB;
+}
+
+#about, a.active[href="#about"]{
+  background-color: #339CC7;
+}
+
+#work, a.active[href="#work"]{
+  background-color: #0378A6;
+}
+
+#contact, a.active[href="#contact"]{
+  background-color: #005778;
+}
+
+
+
+	
+</style>
+
+</head>
+<body>
+
+<div id="nav-container">
+  <div id="nav">
+    <a href="#home" class="nav-link active">Home</a>
+    <a href="#about" class="nav-link">About</a>
+    <a href="#work" class="nav-link">Work</a>
+    <a href="#contact" class="nav-link">Contact</a>
+  </div>
+</div>
+
+<section id="home">
+  
+</section>
+<section id="about">
+  
+</section>
+<section id="work">
+  
+</section>
+<section id="contact">
+  
+</section>
+
+
+<script type="text/javascript">
+	
+$(document).ready(function(){
+
+  var sectionIds = $('a.nav-link');
+
+    $(document).scroll(function(){
+        sectionIds.each(function(){
+
+            var container = $(this).attr('href');
+            var containerOffset = $(container).offset().top;
+            var containerHeight = $(container).outerHeight();
+            var containerBottom = containerOffset + containerHeight;
+            var scrollPosition = $(document).scrollTop();
+    
+            if(scrollPosition < containerBottom - 20 && scrollPosition >= containerOffset - 20){
+                $(this).addClass('active');
+            } else{
+                $(this).removeClass('active');
+            }
+    
+    
+        });
+    });
+   
+
+
+});
+
+</script>
+
+</body>
+</html>
