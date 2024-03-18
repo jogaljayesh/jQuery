@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>if statement</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+<input type="radio" name="location" id="uk"><label>UK</label>
+<input type="radio" name="location" id="europe"><label>Europe</label>
+<br/>
+<br/>
+<input type="submit" id="button">
+
+
+<script type="text/javascript">
+	
+$('#button').click(function(){
+  
+  if($('#uk').is(':checked')) {
+		alert("UK is checked"); 
+	}
+  
+	else if($('#europe').is(':checked')) {
+		alert('Europe is checked');
+	}
+  
+	else{
+		alert('Neither are checked');
+	}
+  
+});
+	
+</script>
+
+</body>
+</html>
