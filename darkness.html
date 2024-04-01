@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>darkness</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+<style type="text/css">
+	
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "hack";
+}
+body {
+  width: 100%;
+  height: 100vh;
+  background: #999;
+  transition: ease 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+body.night {
+  background: #333;
+}
+.button {
+  width: 50px;
+  height: 50px;
+  background: #333;
+  position: fixed;
+  top: 25px;
+  left: 50px;
+  transition: ease 0.5s;
+  z-index: 999;
+}
+.night .button {
+  background: #ccc;
+}
+.button:hover {
+  cursor: pointer;
+}
+.pop {
+  position: fixed;
+  width: 0px;
+  background: whitesmoke;
+  text-align: center;
+  padding: 10px;
+  left: 75px;
+  top: 25px;
+  opacity: 0;
+  font-size: 0;
+  transition: ease 0.5s;
+  z-index: 998;
+  transform: translatex(-50%);
+}
+.button:hover .pop {
+  top: 75px;
+  font-size: 1rem;
+  width: 150px;
+  opacity: 1;
+}
+.pop:before {
+  width: 100%;
+  height: 100%;
+  content: "Embrace the darkness?";
+}
+.night .pop:before {
+  content: "Focus on the light?";
+}
+.lightsaber {
+  width: 500px;
+  height: 800px;
+  background: url("https://upload.wikimedia.org/wikipedia/commons/5/5a/Lightsaber_blue.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: rotate(-59deg);
+}
+.night .lightsaber {
+  filter: hue-rotate(160deg) !important;
+}
+
+
+</style>
+
+</head>
+<body>
+<div class="button">
+  <div class="pop"></div>
+</div>
+<div class="lightsaber" id="lightsaber"></div>
+
+
+<script type="text/javascript">
+	
+$(".button").click(function () {
+  $("body").toggleClass("night");
+  let randomNumber = Math.floor(Math.random() * 361);
+  // Získanie prvku, na ktorý chcete aplikovať štýl
+  let element = document.getElementById("element");
+  // Nastavenie štýlového atribútu na prvok
+  lightsaber.style.filter = "hue-rotate(" + randomNumber + "deg)";
+});
+
+</script>
+
+</body>
+</html>
