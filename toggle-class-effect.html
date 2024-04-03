@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>toggle class effect</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+<style type="text/css">
+	
+        body {
+            background-color: #6A6A6A;
+            overflow: hidden;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        #buttox {
+            position: absolute;
+            top: 100px;
+            left: 46%;
+            right: 46%;
+            height: 100px;
+        }
+
+        .box1 {
+            background-color: #000000;
+            position: absolute;
+            top: 200px;
+            right: 46%;
+            width: 100px;
+            height: 100px;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            filter: brightness(0%);
+            animation: box1 2s linear infinite;
+        }
+
+        .box1b {
+            background-color: #000000;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100%;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+            filter: brightness(100%);
+            animation: box1b 2s linear;
+        }
+
+        .box2 {
+            background-color: #000000;
+            position: absolute;
+            top: 200px;
+            left: 32%;
+            width: 100px;
+            height: 100px;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            filter: brightness(0%);
+            animation: box2 2s linear infinite;
+        }
+
+        .box2b {
+            background-color: #000000;
+            position: absolute;
+            top: 0;
+            left: calc(100% - 100px);
+            width: 100px;
+            height: 100%;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+            filter: brightness(100%);
+            animation: box2b 2s linear;
+        }
+
+        .box3 {
+            background-color: #000000;
+            position: absolute;
+            top: 400px;
+            left: 42%;
+            width: 100px;
+            height: 100px;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            filter: brightness(0%);
+            animation: box3 2s linear infinite;
+        }
+
+        .box3b {
+            background-color: #000000;
+            position: absolute;
+            top: 0;
+            left: 100px;
+            width: calc(100% - 200px);
+            height: 100px;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+            filter: brightness(100%);
+            animation: box3b 2s linear;
+        }
+
+        .box4 {
+            background-color: #000000;
+            position: absolute;
+            top: 400px;
+            left: 50%;
+            width: 100px;
+            height: 100px;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            filter: brightness(0%);
+            animation: box4 2s linear infinite;
+        }
+
+        .box4b {
+            background-color: #000000;
+            position: absolute;
+            top: calc(100% - 100px);
+            left: 100px;
+            width: calc(100% - 200px);
+            height: 100px;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+            filter: brightness(100%);
+            border-radius: 0%;
+            animation: box4b 2s linear;
+        }
+
+        @keyframes box1 {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes box1b {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        @keyframes box2 {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes box2b {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        @keyframes box3 {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes box3b {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        @keyframes box4 {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes box4b {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        .table1 {
+            width: 100%;
+            height: 100%;
+            font-size: 5vh;
+            text-align: center;
+        }
+
+        .table2 {
+            width: 100%;
+            height: 100%;
+            font-size: 2.5vw;
+            text-align: center;
+        }
+        .butt1 {
+            width: 200px;
+            height: 50px;
+            border: solid 2px #000000;
+            background-color: #8b2828;
+            font-size: 22px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold;
+        }
+
+</style>
+
+</head>
+<body>
+
+    <div class="box1">
+        <table class="table1">
+            <tbody>
+                <tr>
+                    <td>🦟</td>
+                </tr>
+                <tr>
+                    <td>🦂</td>
+                </tr>
+                <tr>
+                    <td>🦖</td>
+                </tr>
+                <tr>
+                    <td>🦗</td>
+                </tr>
+                <tr>
+                    <td>🐞</td>
+                </tr>
+                <tr>
+                    <td>🐝</td>
+                </tr>
+                <tr>
+                    <td>🐜</td>
+                </tr>
+                <tr>
+                    <td>🐛</td>
+                </tr>
+                <tr>
+                    <td>🦋</td>
+                </tr>
+                <tr>
+                    <td>🐌</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="box2">
+        <table class="table1">
+            <tbody>
+                <tr>
+                    <td>🦕</td>
+                </tr>
+                <tr>
+                    <td>🐉</td>
+                </tr>
+                <tr>
+                    <td>🐍</td>
+                </tr>
+                <tr>
+                    <td>🦗</td>
+                </tr>
+                <tr>
+                    <td>🦎</td>
+                </tr>
+                <tr>
+                    <td>🐢</td>
+                </tr>
+                <tr>
+                    <td>🐊</td>
+                </tr>
+                <tr>
+                    <td>🦜</td>
+                </tr>
+                <tr>
+                    <td>🦚</td>
+                </tr>
+                <tr>
+                    <td>🦉</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="box3">
+        <table class="table2">
+            <tbody>
+                <tr>
+                    <td>🦢</td>
+                    <td>🦆</td>
+                    <td>🦅</td>
+                    <td>🐧</td>
+                    <td>🐦</td>
+                    <td>🐥</td>
+                    <td>🐓</td>
+                    <td>🐔</td>
+                    <td>🦃</td>
+                    <td>🦘</td>
+                    <td>🐼</td>
+                    <td>🐨</td>
+                    <td>🐻</td>
+                    <td>🦇</td>
+                    <td>🦔</td>
+                    <td>🐇</td>
+                    <td>🐹</td>
+                    <td>🐁</td>
+                    <td>🦛</td>
+                    <td>🦏</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="box4">
+        <table class="table2">
+            <tbody>
+                <tr>
+                    <td>🐘</td>
+                    <td>🦒</td>
+                    <td>🦙</td>
+                    <td>🐫</td>
+                    <td>🐐</td>
+                    <td>🐑</td>
+                    <td>🐏</td>
+                    <td>🐗</td>
+                    <td>🐷</td>
+                    <td>🐄</td>
+                    <td>🐃</td>
+                    <td>🐂</td>
+                    <td>🦌</td>
+                    <td>🦓</td>
+                    <td>🦄</td>
+                    <td>🐎</td>
+                    <td>🐆</td>
+                    <td>🐯</td>
+                    <td>🦁</td>
+                    <td>🦝</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="buttox"><button id="button" class="butt1">Run Effect</button></div>
+
+
+<script type="text/javascript">
+	
+        $(function () {
+            $("#button").on("click", function () {
+                $(".box1").toggleClass("box1b", 1000);
+                $(".box2").toggleClass("box2b", 1000);
+                $(".box3").toggleClass("box3b", 1000);
+                $(".box4").toggleClass("box4b", 1000);
+            });
+        });
+
+</script>
+
+</body>
+</html>
