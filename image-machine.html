@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>image machine</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+<style type="text/css">
+	
+        body {
+            background-color: #000000;
+            overflow: hidden;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        .tv1 {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            right: 20%;
+            bottom: 10px;
+            background-image: url(https://tim-school.com/codepen/image-view/tv.png);
+            background-size: 100% 100%;
+            z-index: 50;
+        }
+
+        .tv2 {
+            position: absolute;
+            top: 3%;
+            left: 3%;
+            right: 24%;
+            bottom: 3%;
+            z-index: 40;
+        }
+
+        .converter {
+            position: absolute;
+            top: 10px;
+            left: 82%;
+            right: 2%;
+            bottom: 10px;
+            text-align: center;
+            line-height: 200px;
+        }
+
+        img:first-of-type {
+            display: inherit;
+        }
+
+        img {
+            border: 1px solid black;
+            display: none;
+        }
+        #next {
+            background-color: #4e0e0e;
+            border: solid 3px #915252;
+            width: 100px;
+            height: 50px;
+            color: aliceblue;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 26px;
+        }
+
+</style>
+
+</head>
+<body>
+
+    <div class="tv1"></div>
+    <div class="tv2">
+        <img id="planet1" src="images/1.jpg" width="100%" height="100%" alt="pic" loading="lazy">
+        <img id="planet2" src="images/2.jpg" width="100%" height="100%" alt="pic" loading="lazy">
+        <img id="planet3" src="images/3.jpg" width="100%" height="100%" alt="pic" loading="lazy">
+        <img id="planet4" src="images/4.jpg" width="100%" height="100%" alt="pic" loading="lazy">
+        <img id="planet5" src="images/5.jpg" width="100%" height="100%" alt="pic" loading="lazy">
+        <img id="planet6" src="images/6.jpg" width="100%" height="100%" alt="pic" loading="lazy">
+        <img id="planet7" src="images/7.jpg" width="100%" height="100%" alt="pic" loading="lazy">
+        <img id="planet8" src="images/8.jpg" width="100%" height="100%" alt="pic" loading="lazy">
+    </div>
+    <div class="converter"><button id="next">BUTTON</button></div>
+    <audio id="buzzer1" src="images/sound.mp3" preload="auto"></audio>
+
+<script type="text/javascript">
+	
+        var currentPicture = 1;
+        var numberOfPictures = 100;
+
+        $('#next').click(function () {
+            currentPicture++;
+            if (currentPicture > $('img').length) {
+                currentPicture = 1;
+            }
+            $('img').css('display', 'none');
+            $(`#planet${currentPicture}`).css('display', 'inherit');
+        });
+        $("#next").click(function () {
+            var audio1 = $("#buzzer1")[0];
+            audio1.play();
+        });
+
+</script>
+</body>
+</html>
